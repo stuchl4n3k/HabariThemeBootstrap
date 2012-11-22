@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="theme">
+	<name>Bootstrap</name>
+	<class>BootstrapTheme</class>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Software License 2.0</license>
+
+	<author url="http://stuchl4n3k.net">Petr Stuchlik</author>
+
+	<version>0.1</version>
+	<url>http://stuchl4n3k.net</url>
+	<description><![CDATA[Twitter bootstrap theme for Habari.]]></description>
+
+	<copyright>2012</copyright>
+
+	<template_engine>rawphpengine</template_engine>
+
+	<areas>
+		<area name="nav">
+			<description><![CDATA[The main menu of the site. If you do not have any idea, try to put Recent Posts block here and configure it to list pages.]]></description>
+		</area>
+		<area name="sidebar">
+			<description><![CDATA[The sidebar area. Here is a good place to put the Search Form.]]></description>
+		</area>
+		<area name="footer">
+			<description><![CDATA[The footer area.]]></description>
+		</area>
+		<area name="comment_form">
+			<description><![CDATA[If you want to use external comment services to replace built in comment system, e.g. Disqus, IntenseDebate, Facebook Comment, etc. You can place here.]]></description>
+		</area>
+	</areas>
+
+</pluggable>

@@ -1,0 +1,91 @@
+body {
+    position: relative;
+    padding-top: 40px;
+}
+#nameplate {
+    padding: 80px 0 120px;
+    background: url("../img/header_bg.jpg") repeat-x bottom center;
+    position:relative;
+}
+#android {
+    background: url("../img/android.png") no-repeat center center;
+    height: 300px;
+    width:254px;
+    position: absolute;
+    top:20px;
+}
+article footer ul {
+    list-style: none;
+    font-size: 12px;
+}
+article footer ul li {
+    display: inline-block;
+}
+#searchsubmit {
+    vertical-align: sub;
+}
+article h3 {
+    text-transform: uppercase;
+}
+#content h2,
+#content h3 {
+    padding-top: 30px;
+}
+#content .well {
+    padding-bottom:49px;
+}
+#pagefooter {
+    background: #f5f5f5;
+    border-top: 1px solid #e3e3e3;
+    height: 200px;
+    margin-top: 80px;
+}
+#pageclosure {
+    border-top: 1px solid #252525;
+    background-color: #1B1B1B;
+    background-image: -moz-linear-gradient(center top , #222222, #111111);
+    background-repeat: repeat-x;
+    padding: 10px 0 0;
+}
+.sidenav {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    margin: 30px 0 0;
+    padding: 0;
+    width: 228px;
+}
+.sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+.sidenav > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+.sidenav > li > a {
+    border: 1px solid #E5E5E5;
+    display: block;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+}
+.sidenav.affix {
+    top: 40px;
+}
+.sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 100px;
+}
+#cf_commentarea {
+    padding-left: 30px;
+}
+#cf_commentarea textarea {
+    height: 150px;
+    width: 400px;
+}
+.thumbnail {
+    text-align: center;
+}

@@ -1,0 +1,83 @@
+<?php include 'header.php'; ?>
+
+<div class="container">
+  <div class="row">
+    <div class="span9">
+
+      <div id="content" role="main">
+        <div id="posts" class="hfeed">
+          <article id="<?php echo Post::type_name($post->content_type); ?>-<?php echo $post->slug; ?>" class="<?php echo $post->css_class(); ?>">
+            <header>
+              <h1 class="entry-title"><a href="<?php echo $post->permalink; ?>" rel="bookmark"><?php echo $post->title_out; ?></a></h1>
+            </header>
+
+            <?php if (Post::type_name($post->content_type) != 'page') : ?>
+              <footer>
+                <ul class="unstyled muted">
+                  <li class="entry-author">
+                    by <a href="<?php echo Utils::htmlspecialchars(URL::get('display_entries', array('user_id' => $post->author->id))); ?>" class="url fn nickname">
+                      <?php echo Utils::htmlspecialchars($post->author->displayname); ?>
+                    </a>
+                  </li>
+                  <li class="entry-date">
+                    on <time datetime="<?php $post->pubdate->out('Y-m-d\TH:i:sP'); ?>" pubdate><?php $post->pubdate->out(); ?></time>
+                  </li>
+                  <?php if ($post->comments->count || !$post->info->comments_disabled) : ?>
+                    <li class="entry-comments-link">
+                      <a href="<?php echo $post->permalink; ?>#comment-public"><?php printf(_n('%d Comment', '%d Comments', $post->comments->comments->moderated->count), $post->comments->comments->moderated->count); ?></a>
+                    </li>
+                  <?php endif; ?>
+                </ul>
+              </footer>
+            <?php endif; ?>
+
+            <section class="entry-content">
+              <?php echo $post->content_out; ?>
+            </section>
+
+
+            <footer>
+              <ul class="unstyled muted">
+                <?php if ($loggedin) : ?>
+                  <li class="entry-edit-link">
+                    <a href="<?php echo $post->editlink; ?>"><?php _e('Edit'); ?></a>
+                  </li>
+                <?php endif; ?>
+                <li class="entry-tags pull-right">
+                  <?php echo $post->tags_list; ?>
+                </li>
+              </ul>
+            </footer>
+            
+            <?php if (Post::type_name($post->content_type) != 'page') : ?>
+              <nav class="pagination">
+                <ul>
+                  <?php if ($prev = $post->descend()) : ?>
+                    <li class="nav-older"><a href="<?php echo $prev->permalink; ?>">&larr; <?php echo Utils::htmlspecialchars($prev->title); ?></a></li>
+                  <?php endif; ?>
+                  <?php if ($next = $post->ascend()) : ?>
+                    <li class="nav-newer"><a href="<?php echo $next->permalink; ?>"><?php echo Utils::htmlspecialchars($next->title); ?> &rarr;</a></li>
+                  <?php endif; ?>
+                </ul>
+              </nav>
+              <?php if (count($theme->get_blocks('comment_form', 0, $theme))): ?>
+                <?php include 'comment_form.area.php'; ?>
+              <?php else: ?>
+                <?php include 'comments.php'; ?>
+              <?php endif; ?>
+            <?php endif; ?>
+
+          </article>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="span3">
+
+      <?php include 'sidebar.php'; ?>
+
+    </div>
+  </div>
+</div>
+<?php include 'footer.php'; ?>
